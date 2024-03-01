@@ -1,0 +1,9 @@
+hopsworks==3.4.4
+numpy
+pandas
+docker
+tensorflow==2.15.0
+matplotlib
+seaborn
+xgboost
+scikit-learn
