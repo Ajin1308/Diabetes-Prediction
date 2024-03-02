@@ -9,5 +9,6 @@ xgboost
 scikit-learn
 python-dotenv
 joblib
+feature_engine
 
 -e .

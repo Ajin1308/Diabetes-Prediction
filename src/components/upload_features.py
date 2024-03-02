@@ -1,13 +1,13 @@
 import os
 import sys
-from hopsworks_connect import FeatureStoreManager
 from dotenv import load_dotenv
 import pandas as pd
 from src.logger.logging import logging
 from src.exception.exception import customexception
+from hopsworks_connect import FeatureStoreManager
+
 
 def upload_features_to_hopsworks(data,feature_descriptions):
-
     try:
         load_dotenv()
         hopsworks_api_key_value: str = os.environ.get("HOPSWORKS_API_KEY_VALUE")
@@ -37,6 +37,7 @@ def upload_features_to_hopsworks(data,feature_descriptions):
         raise customexception(e,sys)
 
 if __name__ == "__main__":
+    load_dotenv()
     data = pd.read_csv(r"C:\Users\user\Diabetes-Prediction\expirements\Diabetes_prediction.csv")
     feature_descriptions = [
             {"name": "pregnancies", "description": "how many pregnancies"},

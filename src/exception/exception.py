@@ -16,10 +16,9 @@ class customexception(Exception):
         self.file_name, self.lineno, str(self.error_message))
 
 
-if __name__=="__main__":
-    try:
-        a=1/0
+# if __name__=="__main__":
+#     try:
+#         a=1/0
 
-    except Exception as e:
-        #print(e)
-        raise customexception(e,sys)
+#     except Exception as e:
+#         raise customexception(e,sys)

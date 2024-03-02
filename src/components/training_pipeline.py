@@ -1,20 +1,34 @@
 import os
+import sys
 from dotenv import load_dotenv
-from hopsworks_connect import FeatureStoreManager
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
+from retrive_data import retrive_data_from_hopsworks
 from sklearn.pipeline import Pipeline
 from joblib import dump
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.impute import SimpleImputer
+from src.logger.logging import logging
+from src.exception.exception import customexception
+from hopsworks_connect import FeatureStoreManager
 
-load_dotenv()
+df = retrive_data_from_hopsworks("diabetics_data")
 
-hopsworks_api_key_value: str = os.environ.get("HOPSWORKS_API_KEY_VALUE")
+try:
+    X = df.drop(columns=['diagnosis'])
+    y = df['diagnosis']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    logging.info("Splitted the data!")
+except Exception as e:
+    logging.info("Exception occured while splitting at training_pipeline")
+    raise customexception(e,sys)
 
-manager = FeatureStoreManager(hopsworks_api_key_value)
+diab_pipe = Pipeline([
+    ("mean_imputation", SimpleImputer(strategy='mean', missing_values=pd.NA, 
+                                      add_indicator=False, fill_value=None, copy=True)),
+    
+    ('scalar', MinMaxScaler()),
 
-users_fg = manager.get_feature_group("diabetecs_data", version=1)
-
-query = users_fg.select_all()
-
-df = query.read()
+    ('Logistic_Regression',LogisticRegression(random_state=42))
+])
