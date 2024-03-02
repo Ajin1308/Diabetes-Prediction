@@ -20,17 +20,3 @@ class FeatureStoreManager:
     def get_feature_view(self, feature_view_name, version=1):
         return self.fs.get_feature_view(feature_view_name, version=version)
 
-    
-    # def get_feature_group_data(self, feature_group_name, version=1):
-    #     # Get the feature group object
-    #     feature_group = self.get_feature_group(feature_group_name, version=version)
-        
-    #     # Retrieve the data from the feature group and return as a Pandas DataFrame
-    #     query_result = feature_group.select()
-        
-    #     # Convert the query result to a Pandas DataFrame
-    #     # Assuming query_result is an iterable containing the data
-    #     data = [row.values() for row in query_result]
-    #     df = pd.DataFrame(data, columns=query_result.column_names())
-        
-    #     return df
