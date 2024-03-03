@@ -10,5 +10,7 @@ scikit-learn
 python-dotenv
 joblib
 feature_engine
+tox
+flake8
 
 -e .

@@ -1,0 +1,80 @@
+name: train
+run_id: install_deps
+env APPDATA: C:\Users\user\AppData\Roaming
+env COMSPEC: C:\Windows\system32\cmd.exe
+env NUMBER_OF_PROCESSORS: 4
+env PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+env PROCESSOR_ARCHITECTURE: AMD64
+env PROGRAMDATA: C:\ProgramData
+env PROGRAMFILES: C:\Program Files
+env PROGRAMFILES(X86): C:\Program Files (x86)
+env SYSTEMDRIVE: C:
+env SYSTEMROOT: C:\Windows
+env TEMP: C:\Users\user\AppData\Local\Temp
+env TMP: C:\Users\user\AppData\Local\Temp
+env USERPROFILE: C:\Users\user
+env PATH: C:\Users\user\Diabetes-Prediction\.tox\test_package\Scripts;C:\ffmpeg\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\user\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\user\AppData\Local\Programs\Python\Python311\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Users\user\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\user\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\user\AppData\Local\Programs\Python\Python310\;C:\Program Files\JetBrains\PyCharm Community Edition 2023.3.2\bin
+env PIP_DISABLE_PIP_VERSION_CHECK: 1
+env PYTHONIOENCODING: utf-8
+env PYTHONPATH: .
+env PYTHONHASHSEED: 0
+env TOX_ENV_NAME: train
+env TOX_WORK_DIR: C:\Users\user\Diabetes-Prediction\.tox
+env TOX_ENV_DIR: C:\Users\user\Diabetes-Prediction\.tox\test_package
+env VIRTUAL_ENV: C:\Users\user\Diabetes-Prediction\.tox\test_package
+env COLUMNS: 120
+env LINES: 30
+metadata pid: 11336
+cwd: C:\Users\user\Diabetes-Prediction
+allow: C:\Users\user\Diabetes-Prediction\.tox\test_package\Scripts\*:train
+cmd: pip install -r C:\Users\user\Diabetes-Prediction/requirements_dev.txt
+exit_code: 1
+Obtaining file:///C:/Users/user/Diabetes-Prediction (from -r C:\Users\user\Diabetes-Prediction/requirements_dev.txt (line 15))
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'error'
+
+standard error:
+  error: subprocess-exited-with-error
+  
+  × Preparing editable metadata (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [21 lines of output]
+      Traceback (most recent call last):
+        File "C:\Users\user\Diabetes-Prediction\.tox\test_package\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 353, in <module>
+          main()
+        File "C:\Users\user\Diabetes-Prediction\.tox\test_package\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 335, in main
+          json_out['return_val'] = hook(**hook_input['kwargs'])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\user\Diabetes-Prediction\.tox\test_package\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 181, in prepare_metadata_for_build_editable
+          return hook(metadata_directory, config_settings)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\user\AppData\Local\Temp\pip-build-env-_kkj23hn\overlay\Lib\site-packages\setuptools\build_meta.py", line 453, in prepare_metadata_for_build_editable
+          return self.prepare_metadata_for_build_wheel(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\user\AppData\Local\Temp\pip-build-env-_kkj23hn\overlay\Lib\site-packages\setuptools\build_meta.py", line 368, in prepare_metadata_for_build_wheel
+          self._bubble_up_info_directory(metadata_directory, ".egg-info")
+        File "C:\Users\user\AppData\Local\Temp\pip-build-env-_kkj23hn\overlay\Lib\site-packages\setuptools\build_meta.py", line 337, in _bubble_up_info_directory
+          info_dir = self._find_info_directory(metadata_directory, suffix)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\user\AppData\Local\Temp\pip-build-env-_kkj23hn\overlay\Lib\site-packages\setuptools\build_meta.py", line 348, in _find_info_directory
+          assert len(candidates) == 1, f"Multiple {suffix} directories found"
+                 ^^^^^^^^^^^^^^^^^^^^
+      AssertionError: Multiple .egg-info directories found
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
